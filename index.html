@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periódico Digital</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif; /* Fuente más parecida a un periódico */
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea; /* Color de fondo más claro */
+            background-image: url('fondo-periodico.jpg'); /* Fondo tipo periódico */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: #4a4a4a; /* Color más vivo */
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-bottom: 5px solid #ffcc00; /* Línea inferior dorada */
+        }
+        header img {
+            width: 100px; /* Ajusta el tamaño de la imagen */
+            height: 100px; /* Ajusta el tamaño de la imagen */
+            border-radius: 50%; /* Hace la imagen circular */
+            margin-right: 10px; /* Espacio entre la imagen y el texto */
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+        nav {
+            background-color: #333; /* Color más oscuro para el menú */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+        .navbar div {
+            color: #ffcc00; /* Color dorado para el título */
+            font-weight: bold;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover, nav a.active {
+            background-color: #ffcc00; /* Color dorado al pasar el mouse */
+            color: #333; /* Texto oscuro al pasar el mouse */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .article {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .article h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.5em; /* Tamaño de fuente más grande */
+        }
+        .article p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .image-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .image-row img {
+            max-width: 100%; /* Asegura que las imágenes ocupen el ancho completo */
+            height: auto; /* Mantiene la proporción de la imagen */
+            max-height: 300px; /* Establece una altura máxima para las imágenes */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            background-color: #4a4a4a; /* Color más vivo */
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        .separator {
+            height: 2px;
+            background-color: #ddd;
+            margin: 20px 0;
+ }
+        .authors {
+            margin: 10px 0;
+            font-style: italic;
+        }
+        /* Estilo para columnas */
+        .news {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .news h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.8em; /* Tamaño de fuente más grande para los títulos de noticias */
+        }
+        .news p {
+            margin-bottom: 10px;
+            text-align: justify; /* Justificar el texto para un aspecto más limpio */
+        }
+        .news img {
+            width: 100%; /* Asegura que las imágenes ocupen el ancho completo */
+            height: auto; /* Mantiene la proporción de la imagen */
+            max-height: 300px; /* Establece una altura máxima para las imágenes */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Mi Periódico Digital</h1>
+    <img src="circulo.webp" alt="Imagen de encabezado">
+</header>
+<nav>
+    <div class="navbar">
+        <div>Noticias Hoy</div>
+        <div>
+            <a href="#noticias1" class="active">Noticia 1</a>
+            <a href="#noticias2">Noticia 2</a>
+            <a href="#noticias3">Noticia 3</a>
+        </div>
+    </div>
+</nav>
+<div class="container"> 
+    <div id="noticias1" class="news">
+        <h2>Posesión del Consejo Estudiantil 2024-2025</h2>
+        <p>La Unidad Educativa Fiscal 24 de Mayo celebró con gran entusiasmo la posesión del Consejo Estudiantil 2024-2025. Este acto reunió a estudiantes, docentes, padres de familia y autoridades, quienes presenciaron el compromiso de los nuevos líderes para representar a su comunidad educativa.</p>
+        <p>Durante la ceremonia, se compartieron reflexiones inspiradoras que resaltaron la importancia de la responsabilidad, el servicio y la disciplina en el liderazgo. También se disfrutó de intervenciones artísticas que demostraron el talento y la creatividad de nuestros estudiantes.</p>
+        <p>El evento reafirmó valores fundamentales como la unión, perseverancia, el esfuerzo y el trabajo en equipo, pilares esenciales para fortalecer a la comunidad educativa de la que formamos parte.</p>
+        <p>Felicitamos al nuevo Consejo Estudiantil y confiamos plenamente en que su gestión será un ejemplo de dedicación y compromiso. Estamos seguros de que marcarán una diferencia positiva en nuestra institución. ¡Muchos éxitos en este nuevo desafío!</p>
+        <div class="image-row">
+            <img src="presi.jpg" alt="Posesión del Consejo Estudiantil">
+            <img src="2.jpg" alt="Evento estudiantil">
+        </div>
+        <p>Para más información, visita nuestra página oficial en Facebook: <a href="https://www.facebook.com/p/UEF-24-De-MAYO-Oficial-100064242001469/?locale=es_LA" target="_blank">UEF 24 De Mayo Oficial</a>.</p>
+    </div>
+    <div class="separator"></div>
+    <div id="noticias2" class="news">
+        <h2>Cómo buscar en los diccionarios virtuales</h2>
+        <p>Publicado el: <span id="fecha1"></span></p>
+        <p>Los diccionarios son herramientas fundamentales en la vida de los estudiantes, no solo para entender palabras desconocidas, sino también como reflejo de la historia y la cultura de los pueblos. Su historia es extensa y se remonta a la Edad Media, con obras destacadas como el Tesoro de la lengua castellana de Covarrubias, el Diccionario de Autoridades de la RAE, el Diccionario ideológico de Casares y el Diccionario de uso de María Moliner. En la era digital, los diccionarios electrónicos han potenciado su versatilidad. Por ejemplo, el DRAE (2001) permite búsquedas inversas para encontrar rimas o patrones, identificar palabras según su origen etimológico o área de conocimiento, como "cacique" (caribe) o términos biológicos como "necrosis". El diccionario de Moliner destaca por ofrecer sinónimos y búsqueda de anagramas, como "amor" que genera "Roma" o "ramo". Estas funciones avanzadas enriquecen el aprendizaje, facilitan la escritura y muestran la riqueza del lenguaje en contextos históricos y modernos.</p>
+        <img src="rae.webp" alt="Diccionario RAE">
+        <p>Existen diversos diccionarios en línea que pueden ayudarte a encontrar definiciones, sinónimos, y más. Uno de los recursos más confiables es el <a href="https://www.rae.es" target="_blank">Diccionario de la Real Academia Española (RAE)</a>. Visítalo para realizar consultas rápidas y precisas.</p>
+    </div>
+    <div class="separator"></div>
+    <div id="noticias3" class="news">
+        <h2>Diferencias entre bibliotecas digitales y físicas.</h2>
+        <p>Publicado el: <span id="fecha2"></span></p>
+        <p>Las bibliotecas digitales y físicas tienen diferencias significativas en su acceso, formato y experiencia de uso:</p>
+        <h2>1. Acceso:</h2>
+        <ul>
+            <li><strong>Digitales:</strong> Se puede acceder desde cualquier lugar con conexión a internet, en cualquier momento.</li>
+            <li><strong>Físicas:</strong> Requieren que los usuarios se desplacen al edificio y respeten horarios establecidos.</li>
+        </ul>
+        <h2>2. Formato:</h2>
+        <ul>
+            <li><strong>Digitales:</strong> Ofrecen recursos en formato electrónico (ebooks, artículos, imágenes, videos) que pueden descargarse o visualizarse en línea.</li>
+            <li><strong>Físicas:</strong> Albergan libros, revistas, mapas y otros materiales tangibles.</li>
+        </ul>
+        <h2>3. Espacio físico:</h2>
+        <ul>
+            <li><strong>Digitales:</strong> No ocupan espacio físico, siendo accesibles desde dispositivos electrónicos.</li>
+            <li><strong>Físicas:</strong> Necesitan infraestructuras y áreas específicas para almacenar los recursos.</li>
+        </ul>
+        <h2>4. Experiencia de uso:</h2>
+        <ul>
+            <li><strong>Digitales:</strong> Permiten búsquedas rápidas y acceso inmediato a múltiples documentos mediante herramientas tecnológicas.</li>
+            <li><strong>Físicas:</strong> Proveen una experiencia sensorial y ambiental, donde los usuarios interactúan con libros físicos y espacios de lectura.</li>
+        </ul>
+        <h2>5. Disponibilidad de copias:</h2>
+        <ul>
+            <li><strong>Digitales:</strong> Varias personas pueden acceder al mismo recurso simultáneamente.</li>
+            <li><strong>Físicas:</strong> Generalmente solo hay un número limitado de copias disponibles.</li>
+        </ul>
+        <h2>6. Preservación:</h2>
+        <ul>
+            <li><strong>Digitales:</strong> Riesgo de obsolescencia tecnológica, pero los archivos pueden respaldarse fácilmente.</li>
+            <li><strong>Físicas:</strong> Son vulnerables a daños físicos, pero pueden durar siglos si se conservan adecuadamente.</li>
+        </ul>
+        <p>Ambas son complementarias, ofreciendo ventajas según las necesidades del usuario. Puedes ingresar a la siguiente página para más información: <a href="https://www.cervantesvirtual.com" target="_blank">Biblioteca Virtual Miguel de Cervantes</a>.</p>
+    </div>
+    <div class="separator"></div>
+    <div class="article">
+        <h2><a id="Noticias">Video de apoyo</a></h2>
+        <video controls src="La Era digital.mp4" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></video>
+    </div>
+</div>
+<footer>
+    <div class="authors">
+        <h2>Autores</h2>
+        <p>Pablo Canchignia</p>
+        <p>Damaris Simbaña</p>
+        <p>Camila Tipaz</p>
+        <p>Christopher Vasquez</p>
+    </div>
+    <p>&copy; 2025 Mi Periódico Digital. Todos los derechos reservados.</p>
+</footer>
+<script>
+    // Establece automáticamente la fecha de publicación en los elementos span con IDs fecha1 y fecha2
+    document.getElementById("fecha1").textContent = new Date().toLocaleDateString();
+    document.getElementById("fecha2").textContent = new Date().toLocaleDateString();
+</script>
+</body>
+</html>
