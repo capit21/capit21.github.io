@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Periódico Digital</title>
+    <title>Prisma Juvenil</title>
     <style>
         body {
             font-family: 'Georgia', serif; /* Fuente más parecida a un periódico */
@@ -26,9 +26,9 @@
             border-bottom: 5px solid #ffcc00; /* Línea inferior dorada */
         }
         header img {
-            width: 100px; /* Ajusta el tamaño de la imagen */
-            height: 100px; /* Ajusta el tamaño de la imagen */
-            border-radius: 50%; /* Hace la imagen circular */
+            width: 200px; /* Ajusta el tamaño de la imagen */
+            height: 200px; /* Ajusta el tamaño de la imagen */
+            border-radius: 1000%; /* Hace la imagen circular */
             margin-right: 10px; /* Espacio entre la imagen y el texto */
         }
         .header-content {
@@ -106,7 +106,7 @@
             margin-top: 20px;
         }
         .separator {
-            height: 6px; /* Aumenta la altura de la separación */
+            height: 6px; /* Aument a la altura de la separación */
             background-color: #ffcc00; /* Cambia el color de la separación a dorado */
             margin: 20px 0;
         }
@@ -124,24 +124,38 @@
             color: #333;
             margin-bottom: 10px;
             font-size: 1.8em; /* Tamaño de fuente más grande para los títulos de noticias */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Sombra para el texto */
         }
         .news p {
             margin-bottom: 10px;
             text-align: justify; /* Justificar el texto para un aspecto más limpio */
+            line-height: 1.8; /* Aumenta el espacio entre líneas */
         }
         .news img {
-            width: 100%; /* Asegura que las imágenes ocupen el ancho completo */
+            display: block; /* Para centrar la imagen */
+            margin: 0 auto; /* Centra la imagen */
+            max-width: 80%; /* Ajusta el tamaño de la imagen */
             height: auto; /* Mantiene la proporción de la imagen */
-            max-height: 300px; /* Establece una altura máxima para las imágenes */
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        /* Estilo adicional para mejorar la apariencia */
+        h1 {
+            font-size: 2.5em; /* Tamaño de fuente más grande para el título principal */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para el título */
+        }
+        .navbar a {
+            padding: 10px 15px; /* Ajusta el padding de los enlaces */
+            border-radius: 8px; /* Bordes más redondeados */
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 204, 0, 0.7); /* Color dorado más suave al pasar el mouse */
         }
     </style>
 </head>
 <body>
 <header>
-    <h1>Mi Periódico Digital</h1>
-    <img src="circulo.webp" alt="Imagen de encabezado">
+    <img src="circulo.webp" alt="Imagen de encabezado"> <h1>Prisma Juvenil</h1>
 </header>
 <nav>
     <div class="navbar">
@@ -169,52 +183,48 @@
     <div class="separator"></div>
     <div id="noticias2" class="news">
         <h2>Cómo buscar en los diccionarios virtuales</h2>
-        <p>Publicado el: <span id="fecha1"></span></p>
-        <p>Los diccionarios son herramientas fundamentales en la vida de los estudiantes, no solo para entender palabras desconocidas, sino también como reflejo de la historia y la cultura de los pueblos. Su historia es extensa y se remonta a la Edad Media, con obras destacadas como el Tesoro de la lengua castellana de Covarrubias, el Diccionario de Autoridades de la RAE, el Diccionario ideológico de Casares y el Diccionario de uso de María Moliner. En la era digital, los diccionarios electrónicos han potenciado su versatilidad. Por ejemplo, el DRAE (2001) permite búsquedas inversas para encontrar rimas o patrones, identificar palabras según su origen etimológico o área de conocimiento, como "cacique" (caribe) o términos biológicos como "necrosis". El diccionario de Moliner destaca por ofrecer sinónimos y búsqueda de anagramas, como "amor" que genera "Roma" o "ramo". Estas funciones avanzadas enriquecen el aprendizaje, facilitan la escritura y muestran la riqueza del lenguaje en contextos históricos y modernos.</p>
+        <p>Publicado el : <span id="fecha1"></span></p>
+        <p>Los diccionarios son herramientas fundamentales en la vida de los estudiantes, no solo para entender palabras desconocidas, sino también como reflejo de la historia y la cultura de los pueblos. Su historia es extensa y se remonta a la Edad Media, con obras destacadas como el Tesoro de la lengua castellana de Covarrubias, el Diccionario de Autoridades de la RAE, el Diccionario ideológico de Casares y el Diccionario de uso de María Moliner. En la era digital, los diccionarios electrónicos han potenciado su versatilidad. Por ejemplo, el DRAE (2001) permite búsquedas inversas para encontrar rimas o patrones, identificar palabras según su origen etimológico o área de conocimiento, como "cacique" (caribe) o términos biológicos como "necrosis". El diccionario de Moliner destaca por ofrecer sinónimos y búsqueda de anagramas, como "amor" que genera "Roma" o "ramo".</p>
         <img src="rae.webp" alt="Diccionario RAE">
-        <p>Existen diversos diccionarios en línea que pueden ayudarte a encontrar defin iciones, sinónimos, y más. Uno de los recursos más confiables es el <a href="https://www.rae.es" target="_blank">Diccionario de la Real Academia Española (RAE)</a>. Visítalo para realizar consultas rápidas y precisas.</p>
+        <p>Uno de los diccionarios más confiables es el <a href="https://www.rae.es" target="_blank">Diccionario de la Real Academia Española (RAE)</a>. Visítalo para realizar consultas rápidas y precisas.</p>
     </div>
     <div class="separator"></div>
     <div id="noticias3" class="news">
         <h2>Diferencias entre bibliotecas digitales y físicas.</h2>
         <p>Publicado el: <span id="fecha2"></span></p>
-        <p>Las bibliotecas digitales y físicas tienen diferencias significativas en su acceso, formato y experiencia de uso:</p>
-        <h2>1. Acceso:</h2>
+        <p>Las bibliotecas digitales y físicas tienen diferencias significativas en:</p>
+        <h2>Acceso:</h2>
         <ul>
             <li><strong>Digitales:</strong> Se puede acceder desde cualquier lugar con conexión a internet, en cualquier momento.</li>
             <li><strong>Físicas:</strong> Requieren que los usuarios se desplacen al edificio y respeten horarios establecidos.</li>
         </ul>
-        <h2>2. Formato:</h2>
+        <h2>Formato:</h2>
         <ul>
-            <li><strong>Digitales:</strong> Ofrecen recursos en formato electrónico (ebooks, artículos, imágenes, videos) que pueden descargarse o visualizarse en línea.</li>
+            <li><strong>Digitales:</strong> Ofrecen recursos en formato electrónico que pueden descargarse o visualizarse en línea.</li>
             <li><strong>Físicas:</strong> Albergan libros, revistas, mapas y otros materiales tangibles.</li>
         </ul>
-        <h2>3. Espacio físico:</h2>
+        <h2>Espacio físico:</h2>
         <ul>
             <li><strong>Digitales:</strong> No ocupan espacio físico, siendo accesibles desde dispositivos electrónicos.</li>
-            <li><strong>Físicas:</strong> Necesitan infraestructuras y áreas específicas para almacenar los recursos.</li>
+            <li><strong>Físicas:</strong> Necesitan áreas específicas para almacenarlos.</li>
         </ul>
-        <h2>4. Experiencia de uso:</h2>
-        <ul>
-            <li><strong>Digitales:</strong> Permiten búsquedas rápidas y acceso inmediato a múltiples documentos mediante herramientas tecnológicas.</li>
-            <li><strong>Físicas:</strong> Proveen una experiencia sensorial y ambiental, donde los usuarios interactúan con libros físicos y espacios de lectura.</li>
-        </ul>
-        <h2>5. Disponibilidad de copias:</h2>
+        <h2>Disponibilidad de copias:</h2>
         <ul>
             <li><strong>Digitales:</strong> Varias personas pueden acceder al mismo recurso simultáneamente.</li>
             <li><strong>Físicas:</strong> Generalmente solo hay un número limitado de copias disponibles.</li>
         </ul>
-        <h2>6. Preservación:</h2>
+        <h2>Preservación:</h2>
         <ul>
             <li><strong>Digitales:</strong> Riesgo de obsolescencia tecnológica, pero los archivos pueden respaldarse fácilmente.</li>
             <li><strong>Físicas:</strong> Son vulnerables a daños físicos, pero pueden durar siglos si se conservan adecuadamente.</li>
         </ul>
-        <p>Ambas son complementarias, ofreciendo ventajas según las necesidades del usuario. Puedes ingresar a la siguiente página para más información: <a href="https://www.cervantesvirtual.com" target="_blank">Biblioteca Virtual Miguel de Cervantes</a>.</p>
+        <p>Puedes ingresar a la siguiente página para más información: <a href="https://www.cervantesvirtual.com" target="_blank">Biblioteca Virtual Miguel de Cervantes</a>.</p>
     </div>
     <div class="separator"></div>
     <div class="article">
-        <h2><a id="Noticias">Video de apoyo</a></h2>
+        <h2><a id="Noticias">Publicidad y Entretenimiento</a></h2>
         <video controls src="La Era digital.mp4" style="width: 100%; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);"></video>
+        <img src="7f2eeac26d68474f02ef41b17969816b.jpg" alt="meme" style="max-width: 60%; display: block; margin: 0 auto; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
     </div>
 </div>
 <footer>
@@ -222,10 +232,10 @@
         <h2>Autores</h2>
         <p>Pablo Canchignia</p>
         <p>Damaris Simbaña</p>
-        <p>Camila Tipaz</p>
+        <p> Camila Tipaz</p>
         <p>Christopher Vasquez</p>
     </div>
-    <p>&copy; 2025 Mi Periódico Digital. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Prisma Juvenil. Todos los derechos reservados.</p>
 </footer>
 <script>
     // Establece automáticamente la fecha de publicación en los elementos span con IDs fecha1 y fecha2
