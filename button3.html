@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiero</title>
+<link rel="stylesheet" href="button3.css">
+</head>
+<body class="button3">
+  <div class="menu">
+    <h1><img src="https://emojigraph.org/media/google/sparkles_2728.png" alt="Estrellas" style="width: 100px; height: auto;"></h1>
+    <audio id="audio" src="Myles Smith - Stargazing (Lyric Video).mp3" controls></audio>
+    <div class="volume-controls">
+      <button id="volume-down">🔉</button>
+      <button id="volume-up">🔊</button>
+    </div>
+  </div>
+  <div id="lyrics"></div>
+  <script>
+    let lyrics = [
+      [7.8, "Time stood still just like a photograph"],
+      [12, "You made me feel like this would last forever"],
+      [15.7, "Looking in your eyes"],
+      [19, "I see my whole life"],
+      [23, "Oh-oh, oh, oh-oh, oh"],
+      [26, "They say you know it when you know it, and I know"],
+      [31, "Oh-oh, oh, oh-oh, oh"],
+      [34.8, "Promise that you'll hold me close, don't let me go"],
+      [40, "Take my heart, don't break it"],
+      [43, "Love me to my bones"],
+      [47, "All this time I've wasted"],
+      [51, "You were right there all along"],
+      [55, "You and I stargazing"],
+      [59, "Intertwining souls"],
+      [63, "We were never strangers"],
+      [67, "You were right there all along (hey!)"],
+      [71, "I lose my mind"],
+      [74, "When I'm around you, how I come alive"],
+      [78, "When I'm without you, I can't help but feel so lost"],
+      [82.9, "I wanna give you all I've got"],
+      [87, "Oh-oh, oh, oh-oh, oh"],
+      [90, "They say you know it when you know it, and I know"],
+      [95, "Oh-oh, oh, oh-oh, oh"],
+      [98, "Promise that you'll hold me close, don't let me go"],
+      [103, "Take my heart, don't break it"],
+      [107, "Love me to my bones"],
+      [111, "All this time I've wasted"],
+      [115, "You were right there all along"],
+      [119, "You and I stargazing"],
+      [122.8, "Intertwining souls"],
+      [127, "We were never strangers"],
+      [130.7, "You were right there all along"],
+      [133, "All along (yeah)"],
+      [150, "Take my heart, don't break it"],
+      [154, "Love me to my bones"],
+      [158, "All this time I've wasted"],
+      [162, "You were right there all along"]
+    ];
+
+    let currentLyricIndex = 0;
+    const audio = document.getElementById('audio');
+    const lyricsDiv = document.getElementById('lyrics');
+    let interval;
+
+    function updateLyrics() {
+      if (currentLyricIndex < lyrics.length) {
+        const [time, text] = lyrics[currentLyricIndex];
+        if (audio.currentTime >= time) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'lyric-line';
+          const chars = text.split('');
+          chars.forEach((char, index) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.opacity = '0';
+            span.style.transition = 'opacity 0.3s';
+            lineDiv.appendChild(span);
+            setTimeout(() => {
+              span.style.opacity = '1';
+            }, index * 105);
+          });
+          lyricsDiv.appendChild(lineDiv);
+          lyricsDiv.appendChild(document.createElement('br'));
+          // Auto-scroll to the new line
+          setTimeout(() => {
+            const container = document.getElementById('lyrics');
+            const lineTop = lineDiv.offsetTop;
+            const containerHeight = container.offsetHeight;
+            container.scrollTop = lineTop - containerHeight / 2;
+          }, 100);
+          currentLyricIndex++;
+        }
+      }
+    }
+
+    audio.addEventListener('play', () => {
+      interval = setInterval(updateLyrics, 100);
+    });
+
+    audio.addEventListener('ended', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    audio.addEventListener('pause', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    document.getElementById('volume-up').addEventListener('click', () => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+      }
+    });
+
+    document.getElementById('volume-down').addEventListener('click', () => {
+      if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+      }
+    });
+
+
+  </script>
+</body>
+</html>

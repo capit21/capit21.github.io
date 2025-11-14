@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Te </title>
+<link rel="stylesheet" href="button3.css">
+</head>
+<body class="button2">
+  <div class="menu">
+    <h1> </h1>
+    <audio id="audio" src="MILO J - TUS VUELTAS (audio).mp3" controls></audio>
+    <div class="volume-controls">
+      <button id="volume-down">🔉</button>
+      <button id="volume-up">🔊</button>
+    </div>
+  </div>
+  <div id="lyrics"></div>
+  <script>
+    let lyrics = [
+      [13.5, "El M"],
+      [16.5, "Te vi bailando"],
+      [18, "Raspando el cemento de la plaza de mi barrio"],
+      [23, "Tus vueltas cautivaban la mirada de unos cuanto'"],
+      [27.5, "Tal vez yo era uno más, pero deseé que fueras mía"],
+      [32.2, "Mientras escribía que"],
+      [34, "Quiero besarte en la cama, desnuda o con ropa"],
+      [35.9, "Y cantarte poesías de esas que te escribo para vos no más"],
+      [40, "Y hacer el amor solo con vos"],
+      [43, "Mirada penetrante parece Medusa"],
+      [45, "Movimiento de morocha y cara de USA"],
+      [47, "No vi ni tu blusa por tu cara hermosa"],
+      [49, "Y sé que no es excusa"],
+      [51.8, "Pero es que con vos sentí algo que no había sentido"],
+      [54.9, "En la noche mis sueño son solo contigo"],
+      [57, "En mi panza dejaste un lindo cosquilleo"],
+      [59, "Y en mi mente un tema que aún no termino"],
+      [61.9, "Solo te sería infiel con la luna"],
+      [64, "Pero ni siquiera no tiene tu estilo"],
+      [67, "No tiene tu estilo (El M)"],
+      [69, "Te vi bailando"],
+      [71, "Raspando el cemento de la plaza de mi barrio"],
+      [75, "Tus vueltas cautivaban la mirada de unos cuantos"],
+      [79, "Tal vez yo era uno más, pero deseé que fueras mía"],
+      [84.7, "Mientras escribía que"],
+      [86, "Quiero besarte en la cama, desnuda o con ropa"],
+      [89, "Y cantarte poesías de esas que te escribo para vos no más"],
+      [92.5, "Y hacer el amor solo con vos"],
+      [95, "Mirada penetrante parece Medusa"],
+      [97.8, "Movimiento de morocha y cara de USA"],
+      [100, "No vi ni tu blusa por tu cara hermosa"],
+      [102, "Y sé que no es excusa"]
+    ];
+
+    let currentLyricIndex = 0;
+    const audio = document.getElementById('audio');
+    const lyricsDiv = document.getElementById('lyrics');
+    let interval;
+
+    function updateLyrics() {
+      if (currentLyricIndex < lyrics.length) {
+        const [time, text] = lyrics[currentLyricIndex];
+        if (audio.currentTime >= time) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'lyric-line';
+          if (currentLyricIndex >= 9 && currentLyricIndex <= 18) {
+            lineDiv.classList.add('wine-red-lyrics');
+          }
+          const chars = text.split('');
+          chars.forEach((char, index) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.opacity = '0';
+            span.style.transition = 'opacity 0.3s';
+            lineDiv.appendChild(span);
+            setTimeout(() => {
+              span.style.opacity = '1';
+            }, index * 50);
+          });
+          lyricsDiv.appendChild(lineDiv);
+          lyricsDiv.appendChild(document.createElement('br'));
+          // Auto-scroll to the new line
+          setTimeout(() => {
+            const container = document.getElementById('lyrics');
+            const lineTop = lineDiv.offsetTop;
+            const containerHeight = container.offsetHeight;
+            container.scrollTop = lineTop - containerHeight / 2;
+          }, 100);
+          currentLyricIndex++;
+        }
+      }
+    }
+
+    audio.addEventListener('play', () => {
+      interval = setInterval(updateLyrics, 100);
+    });
+
+    audio.addEventListener('ended', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    audio.addEventListener('pause', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    document.getElementById('volume-up').addEventListener('click', () => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+      }
+    });
+
+    document.getElementById('volume-down').addEventListener('click', () => {
+      if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+      }
+    });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mucho</title>
+<link rel="stylesheet" href="button3.css">
+<style>
+body {
+  background: url('https://marketplace.canva.com/EAE9oAp-Byc/1/0/1600w/canva-fondo-de-pantalla-escritorio-pc-abstracto-moderno-degradado-negro-PriNvkfDEzU.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+</style>
+</head>
+</head>
+  <div class="menu">
+    <h1> </h1>
+    <audio id="audio" src="MILO J - M.A.I (Video Oficial).mp3" controls></audio>
+    <div class="volume-controls">
+      <button id="volume-down">🔉</button>
+      <button id="volume-up">🔊</button>
+    </div>
+  </div>
+  <div id="lyrics"></div>
+  <script>
+    let lyrics = [
+      [0, "No me imaginé que funcionaba así, no buscaba amor"],
+      [5, "Y un día te encontré, estaba vivo pero con vos comencé a vivir"],
+      [9.8, "Fuiste una bendición, me queda agradecer"],
+      [12, "Sos ese cuento del que no quiero saber final"],
+      [15, "Ese cometa que tuve suerte de presenciar"],
+      [18, "El mundo es feo y su pasado provocó ansiedad"],
+      [21, "Me iré al infierno pero en tierra"],
+      [24, "Si algún día de estos se hace gris tu cielo"],
+      [27, "Lo pintarás mirando un río"],
+      [29.8, "Las lágrimas y el frío te hicieron de hielo"],
+      [32.9, "Y daré la piel, pa' servir de abrigo"],
+      [35.5, "Y aunque el orgullo a veces ocultó mis miedo'"],
+      [38.7, "Temo a caer y que no estés conmigo"],
+      [41, "Te ofrezco amor real de un corazón sincero"],
+      [44.3, "Y quemar la llave que abrió el laberinto"],
+      [47, "Si algún día de estos se hace gris tu cielo"],
+      [50, "Lo pintarás mirando un río"],
+      [53, "Las lágrimas y el frío te hicieron de hielo"],
+      [56, "Y daré la piel, pa' servir de abrigo"],
+      [59, "Y aunque el orgullo a veces ocultó mis miedo'"],
+      [62, "Temo a caer y que no estés conmigo"],
+      [65, "Te ofrezco amor real de un corazón sincero"],
+      [67.7, "Y quema la llave que abrió el laberinto"],
+      [72, "Mai"],
+      [73.7, "Mai"],
+      [76.8, "Mai"],
+      [79, "Mai"],
+      [82, "Hoy el tiempo no perdona"],
+      [86.4, "Y el ambiente raro, pero solo esa persona"],
+      [93, "Me dio su mano"],
+      [94, "Tu alma era viajera y sola"],
+      [98, "Sé que es un descaro"],
+      [99.8, "Y la mía se desmorona"],
+      [104, "Pero combinamos"],
+      [106, "Lograste comprender lo que ni yo entendí"],
+      [109, "Tus palabras hoy, fueron mirada ayer"],
+      [111.8, "Preferiste escuchar antes que verme sonreír"],
+      [115, "Me hiciste ser mejor, me queda agradecer"],
+      [118, "Si algún día de estos ya seré tu cielo"],
+      [120.9, "Lo pintará mirando un río"],
+      [123, "Las lágrimas y el frío te hicieron de hielo"],
+      [126, "Y daré la piel pa' servir de abrigo"],
+      [129, "Y aunque el orgullo a veces ocultó mis miedo'"],
+      [132, "Temo a caer y que no estés conmigo"],
+      [135, "Te ofrezco amor real de un corazón sincero"],
+      [138, "Y quema la llave que abrió el laberinto"],
+      [141, "Mai (mai)"],
+      [143, "Mai (que abrió el laberinto)"],
+      [146.8, "Mai (mai)"],
+      [150, "Mai (que abrió el laberinto)"],
+      [153, "Mai (mai)"],
+      [155, "Mai (que abrió el laberinto)"],
+      [158, "Mai (mai)"],
+      [160, "(Mai) quema la llave que abrió el laberinto."]
+    ];
+
+    let currentLyricIndex = 0;
+    const audio = document.getElementById('audio');
+    const lyricsDiv = document.getElementById('lyrics');
+    let interval;
+
+    function updateLyrics() {
+      if (currentLyricIndex < lyrics.length) {
+        const [time, text] = lyrics[currentLyricIndex];
+        if (audio.currentTime >= time) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'lyric-line';
+          if (currentLyricIndex >= 9 && currentLyricIndex <= 18) {
+            lineDiv.classList.add('wine-red-lyrics');
+          }
+          const chars = text.split('');
+          chars.forEach((char, index) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.opacity = '0';
+            span.style.transition = 'opacity 0.3s';
+            lineDiv.appendChild(span);
+            setTimeout(() => {
+              span.style.opacity = '1';
+            }, index * 80);
+          });
+          lyricsDiv.appendChild(lineDiv);
+          lyricsDiv.appendChild(document.createElement('br'));
+          // Auto-scroll to the new line
+          setTimeout(() => {
+            const container = document.getElementById('lyrics');
+            const lineTop = lineDiv.offsetTop;
+            const containerHeight = container.offsetHeight;
+            container.scrollTop = lineTop - containerHeight / 2;
+          }, 100);
+          currentLyricIndex++;
+        }
+      }
+    }
+
+    audio.addEventListener('play', () => {
+      interval = setInterval(updateLyrics, 100);
+    });
+
+    audio.addEventListener('ended', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    audio.addEventListener('pause', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    document.getElementById('volume-up').addEventListener('click', () => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+      }
+    });
+
+    document.getElementById('volume-down').addEventListener('click', () => {
+      if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+      }
+    });
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stefany</title>
+<link rel="stylesheet" href="button3.css">
+<style>
+body {
+  background: url('https://wallpapers.com/images/hd/night-mountain-1920-x-1029-avz2qnucg2cf6xqs.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+</style>
+</head>
+<body class="button1">
+  <div class="menu">
+    <h1> </h1>
+    
+    <audio id="audio" src="Maximillian - On My Mind (Lyric Video).mp3" controls></audio>
+    <div class="volume-controls">
+      <button id="volume-down">🔉</button>
+      <button id="volume-up">🔊</button>
+    </div>
+  </div>
+  <div id="lyrics"></div>
+  <script>
+    let lyrics = [
+      [5, "Baby, I'm fallin', losin' my focus"],
+      [10, "How come you're actin' like you haven't noticed?"],
+      [15, "I'm going crazy, stuck with your maybe"],
+      [20, "Left me in nowhere, my beautiful nightmare"],
+      [24, "Oh, my love"],
+      [25.5, "When I look into your eyes"],
+      [28, "Girl, it gets me everytime"],
+      [30, "And I thought that you should know"],
+      [33, "(Oh-oh-oh)"],
+      [33.8, "That I got you on my mind, on my mind, on my mind"],
+      [39.9, "I want you all the time, all the time, every night"],
+      [44.4, "Tell me you feel it too"],
+      [46.6, "You don't have to play it cool"],
+      [49.6, "'Cause I got you on my mind, on my mind, on my mind"],
+      [55.9, "Cool as a cold war, hot like a fever"],
+      [61, "I'm tryna hold on, 'cause, baby, I need ya"],
+      [66, "You're so contagious, tell me I'll make it"],
+      [71.8, "Act like you don't know, I'm calling your Limbo"],
+      [76, "Oh, my love..."],
+      [76.5, "When I look into your eyes"],
+      [79.8, "Girl, it gets me everytime"],
+      [81.9, "And I thought that you should know"],
+      [84.7, "(Oh-oh-oh)"],
+      [86, "That I got you on my mind, on my mind, on my mind"],
+      [91, "I want you all the time, all the time, every night"],
+      [96, "Tell me you feel it too"],
+      [97.7, "You don't have to play it cool"],
+      [100.1, "'Cause I got you on my mind, on my mind, on my mind"],
+      [114, "Come on, baby, get closer, I wanna hold ya"],
+      [116.9,"Think of you all the time"],
+      [119,"I'm counting the days that I have to wait for"],
+      [121.2,"You to make up your mind, oh"],
+      [124.6,"My love, when I look into your eyes"],
+      [128,"Girl, it gets me every time"],
+      [130,"And I thought that you should know (Oh, oh, oh)"],
+      [133.8,"(Hey) That I got you on my mind, on my mind, on my mind"],
+      [140,"I want you all the time, all the time, every night (Ooh, every night)"],
+      [144.7,"Tell me you feel it too, you don't have to play it cool (Na-na-na)"],
+      [150,"'Cause I got you on my mind, on my mind, on my mind..."],
+    
+    ];
+
+    let currentLyricIndex = 0;
+    const audio = document.getElementById('audio');
+    const lyricsDiv = document.getElementById('lyrics');
+    let interval;
+
+    function updateLyrics() {
+      if (currentLyricIndex < lyrics.length) {
+        const [time, text] = lyrics[currentLyricIndex];
+        if (audio.currentTime >= time) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'lyric-line';
+          const chars = text.split('');
+          chars.forEach((char, index) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.opacity = '0';
+            span.style.transition = 'opacity 0.3s';
+            lineDiv.appendChild(span);
+            setTimeout(() => {
+              span.style.opacity = '1';
+            }, index * 105);
+          });
+          lyricsDiv.appendChild(lineDiv);
+          lyricsDiv.appendChild(document.createElement('br'));
+          // Auto-scroll to the new line
+          setTimeout(() => {
+            const container = document.getElementById('lyrics');
+            const lineTop = lineDiv.offsetTop;
+            const containerHeight = container.offsetHeight;
+            container.scrollTop = lineTop - containerHeight / 2;
+          }, 100);
+          currentLyricIndex++;
+        }
+      }
+    }
+
+    audio.addEventListener('play', () => {
+      interval = setInterval(updateLyrics, 100);
+    });
+
+    audio.addEventListener('ended', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    audio.addEventListener('pause', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    document.getElementById('volume-up').addEventListener('click', () => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+      }
+    });
+
+    document.getElementById('volume-down').addEventListener('click', () => {
+      if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+      }
+    });
+
+
+  </script>
+</body>
+</html>

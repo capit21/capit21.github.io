@@ -1,0 +1,69 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url('https://i.pinimg.com/originals/a0/74/a8/a074a8a62cf3c17b39c70aa1270ef4eb.jpg') no-repeat center center fixed;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+.menu {
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+}
+.play-btn {
+  background: #4fc3f7;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.play-btn:hover {
+  background: #29b6f6;
+}
+.twinkling-dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px white, 0 0 10px white;
+  animation: twinkle 2s infinite;
+}
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+#lyrics {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.2;
+  white-space: pre-line;
+  font-style: italic;
+  background: linear-gradient(45deg, #87CEEB, #00BFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 10px rgba(135, 206, 235, 0.8), 0 0 20px rgba(135, 206, 235, 0.6), 0 0 30px rgba(135, 206, 235, 0.4);
+  filter: drop-shadow(0 0 5px rgba(135, 206, 235, 0.5));
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.lyric-line {
+  opacity: 1;
+}
+.red-lyrics span {
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4);
+  filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+}
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dame una chance </title>
+<link rel="stylesheet" href="button5.css">
+</head>
+<body class="button5">
+  <div class="menu">
+    <h1> </h1>
+    <audio id="audio" src="Seven Kayne - Si Te Lastimé (Acústico) ｜ Red Bull Music Sessions.mp3" controls></audio>
+    <div class="volume-controls">
+      <button id="volume-down">🔉</button>
+      <button id="volume-up">🔊</button>
+    </div>
+  </div>
+  <div id="lyrics"></div>
+  <script>
+    let lyrics = [
+      
+      [17, "Sé que me he desconcentrado y mi meta dejé de lado"],
+      [25, "Ya no ando desesperado, problema solucionado, yeh"],
+      [31, "No me permito perderte, no me permito soltarte"],
+      [35, "Quererte tan fuerte no es cosa de suerte y lo tengo asimilado"],
+      [38, "No aguanto más, quiero verte, el olor a perfume en tu suéter"],
+      [43.7, "Sólo hace falta que estés a mi lado"],
+      [45.6, "Si te lastimé no era mi intención"],
+      [50, "Por eso te pido perdón otra vez"],
+      [53.5, "Ni te gastes en decírmelo, oh-oh"],
+      [57.8, "Si tengo lo que querés"],
+      [60, "Si te lastimé no era mi intención"],
+      [64, "Por eso te pido perdón otra vez"],
+      [68, "Ni te gastes en decírmelo, oh-oh"],
+      [72, "Si tengo lo que querés"],
+      [75.6, "¿Qué es lo que estoy sintiendo?"],
+      [78, "Ya quiero verte sonriendo"],
+      [82.8, "Si hoy ni yo me entiendo"],
+      [86, "Estoy sin querer queriendo"],
+      [88, "La radio suena, cambio y fuera, su sonrisa me encandiló"],
+      [92, "El humo vuela, sos pura seda y el silencio nos invadió"],
+      [95, "Resaca, nena, esa cadera que no puede decir que no"],
+      [98, "Se nota, nena, es nuestra era, nada espera, el tiempo es hoy"],
+      [103, "Si te lastimé no era mi intención"],
+      [107, "Por eso te pido perdón otra vez"],
+      [110, "Ni te gastes en decírmelo, oh"],
+      [114, "Si tengo lo que querés"],
+      [117, "Na-na-na, na-na-na"],
+      [120, "Si te lastimé, si te lastimé"],
+      [123, "Na-na-na, na-na-na"],
+      [126, "Si te lastimé, si te lastimé"],
+      [131, "Si te lastimé no era mi intención"],
+      [135, "Por eso te pido perdón otra vez"],
+      [139, "Ni te gastes en decírmelo"],
+      [143, "Si tengo lo que querés."]
+    ];
+
+    let currentLyricIndex = 0;
+    const audio = document.getElementById('audio');
+    const lyricsDiv = document.getElementById('lyrics');
+    let interval;
+
+    function updateLyrics() {
+      if (currentLyricIndex < lyrics.length) {
+        const [time, text] = lyrics[currentLyricIndex];
+        if (audio.currentTime >= time) {
+          const lineDiv = document.createElement('div');
+          lineDiv.className = 'lyric-line';
+
+          const chars = text.split('');
+          chars.forEach((char, index) => {
+            const span = document.createElement('span');
+            span.innerText = char;
+            span.style.opacity = '0';
+            span.style.transition = 'opacity 0.3s';
+            lineDiv.appendChild(span);
+            setTimeout(() => {
+              span.style.opacity = '1';
+            }, index * 80);
+          });
+          lyricsDiv.appendChild(lineDiv);
+          lyricsDiv.appendChild(document.createElement('br'));
+          // Auto-scroll to the new line
+          setTimeout(() => {
+            const container = document.getElementById('lyrics');
+            const lineTop = lineDiv.offsetTop;
+            const containerHeight = container.offsetHeight;
+            container.scrollTop = lineTop - containerHeight / 2;
+          }, 100);
+          currentLyricIndex++;
+        }
+      }
+    }
+
+    audio.addEventListener('play', () => {
+      interval = setInterval(updateLyrics, 100);
+    });
+
+    audio.addEventListener('ended', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    audio.addEventListener('pause', () => {
+      if (interval) clearInterval(interval);
+    });
+
+    document.getElementById('volume-up').addEventListener('click', () => {
+      if (audio.volume < 1) {
+        audio.volume = Math.min(1, audio.volume + 0.1);
+      }
+    });
+
+    document.getElementById('volume-down').addEventListener('click', () => {
+      if (audio.volume > 0) {
+        audio.volume = Math.max(0, audio.volume - 0.1);
+      }
+    });
+
+
+  </script>
+</body>
+</html>
